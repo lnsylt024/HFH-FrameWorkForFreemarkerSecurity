@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>${title}</title>
+</head>
+<body>
+	<h1>${message}</h1>
+	<#assign i=1 />
+	<h2>${i}</h2>
+	<p>
+		<span>out list</span>
+	</p>
+	<ul>
+		<#list outList as ll> <#if ll_index % 2 ==0 >
+	    <li>${ll}----(mod)</li>
+	<#else>
+	    <li>${ll}</li>
+	</#if> </#list>
+	</ul>
+	<p>
+		<span>out list person</span>
+	</p>
+	<ul>
+		<#list personList as pl>
+		<li>${pl.id} / ${pl.name}</li>
+		</#list>
+	</ul>
+	<p>
+		<span>out map</span>
+	</p>
+	<p>${outMap.key1} / ${outMap.key4}</p>
+	<ul>
+		<#list outMap?keys as key>
+		<li>${key} ⇒${outMap[key]}</li>
+		</#list>
+	</ul>
+	<p>
+		<span> true / false</span>
+	</p>
+	<#if showFlg> <span>true</span> <#else> <span>false</span></#if>
+	
+	<p><span> show date</span></p>
+	<p>${showDate?date} ⇒${showDate?datetime}⇒${showDate?time}</p>
+	
+	<p>
+	   ${showNull!"showNull is null"}
+	</p>
+	
+	<div>
+	   <form action="/hfh/demo/gonext" method="post">
+	       <input type="text" name="uname" />
+	       <button type="submit">Submit</button>
+	   </form>
+	</div>
+</body>
+</html>
